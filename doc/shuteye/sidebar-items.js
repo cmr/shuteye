@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["sleep",""]],"struct":[["Timespec",""]]});
+initSidebarItems({"fn":[["sleep","sleep for a relative time"]],"struct":[["Timespec",""]]});

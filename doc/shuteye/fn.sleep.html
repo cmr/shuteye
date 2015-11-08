@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>shuteye</a></p><script>window.sidebarCurrent = {name: 'sleep', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,16 +45,38 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-294' class='srclink' href='../src/shuteye/lib.rs.html#110-117' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn sleep(ts: <a class='struct' href='../shuteye/struct.Timespec.html' title='shuteye::Timespec'>Timespec</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../shuteye/struct.Timespec.html' title='shuteye::Timespec'>Timespec</a>&gt;</pre></section>
+        </span><a id='src-294' class='srclink' href='../src/shuteye/lib.rs.html#139-146' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn sleep(ts: <a class='struct' href='../shuteye/struct.Timespec.html' title='shuteye::Timespec'>Timespec</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../shuteye/struct.Timespec.html' title='shuteye::Timespec'>Timespec</a>&gt;</pre><div class='docblock'><p>sleep for a relative time</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>shuteye</span>::<span class='op'>*</span>;
+
+<span class='kw'>let</span> <span class='ident'>ts</span> <span class='op'>=</span> <span class='ident'>Timespec</span>::<span class='ident'>from_nano</span>(<span class='number'>1000</span>).<span class='ident'>unwrap</span>();
+
+<span class='comment'>// simple sleep</span>
+<span class='ident'>shuteye</span>::<span class='ident'>sleep</span>(<span class='ident'>ts</span>);
+
+<span class='comment'>// remain captures remaining time from `Timespec`</span>
+<span class='kw'>match</span> <span class='ident'>shuteye</span>::<span class='ident'>sleep</span>(<span class='ident'>ts</span>) {
+    <span class='prelude-val'>Some</span>(<span class='ident'>remain</span>) <span class='op'>=&gt;</span> {
+        <span class='comment'>// some sleep time remains</span>
+    }
+    <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> {
+        <span class='comment'>// no sleep time remains</span>
+    }
+}</pre>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -71,7 +93,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -81,8 +103,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -91,7 +113,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
